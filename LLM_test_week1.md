@@ -193,23 +193,37 @@ ChatGLM-6B 是一个开源的、支持中英双语的对话语言模型，基于
     
     ```
   
-## Test3:对评价者的测试：有没有必要反转测两次
-
-对于语言模型，其当前输入取决于，之前的历史输入token。
+## Test3:对评价者的测试：反转测试？
+对于LLM，其当前输入取决于之前的历史输入token，因此我们的交给评价者（gpt3.5）的问题顺序，也可能会影响最终结果。我们想测试顺序到底有没有影响；如果有，影响有多大，可否通过反转测试降低影响。
 
 * 涉及模型
-  - 基础能力测试中涉及的6种模型中，MOSS和ChatGLM是针对中文的，其他模型的训练语料中中文占比很少，初步测试发现，只有Vicuna具有较好的表现，因此纳入以下三种模型：
-    - Vicuna 7B
-    - MOSS 7B
-    - ChatGLM 7B
+  - ChatGLM
+  - MOSS
+  - vicuna_7b_16bit
+  - llama_7b_16bit
+  - alpaca_7b_16bit
 * 评分标准
   - 使用OpenAI提供的API进行测试，gpt3.5作为评判者。
-  - 模型两两pk，由gpt3.5打出1-10分，统计每个模型每次pk的平均分数，再取平均作为最终得分
+  - 为控制单一变量，不再两两测试
+    - ChatGLM + MOSS + ```ZH_test_16```
+    - MOSS + vicuna_7b_16bit + ```EN_test_16```
+    - vicuna_7b_16bit + alpaca_7b_16bit + ```EN_test_16```
+    - llama_7b_16bit + vicuna_7b_16bit + ```EN_test_16```
+    - ChatGLM + alpaca_7b_16bit + ```EN_test_16```
 * 评分prompt
-  - 使用FastChat的prompt. TODO: 自制中文prompt
+  - 使用FastChat的prompt
 * 测试集
-  - Z-Bench提供了3类问题，用于测试LLM在中文上的```基础能力, 进阶能力, 垂直能力```，我们从每类中挑选出6个问题，构成了```ZH_test_16```
-  
+  - ```EN_test_16``` ```ZH_test_16```
+* 测试结果
+  - 
+
+| Setting             |      Score |
+|:--------------------|-----------:|
+| ChatGLM  &&  MOSS   | (7.8, 7.9) |
+| Vicuna  &&  MOSS    | (8.0, 7.9) |
+| Vicuna  &&  Alpaca  | (8.3, 7.5) |
+| Llama  &&  Vicuna   | (5.1, 8.0) |
+| ChatGLM  &&  Alpaca | (7.4, 7.5) |
 
 ## Test4:量化对模型回答质量的影响
 模型量化对回答质量也有一定的影响，因此我们测试了4bit, 8bit, 16bit量化下，模型的回答质量。
@@ -268,3 +282,32 @@ LLaMA系模型中，Alpaca使用的是```Instruction-Input-Output```这一模板
   - 使用FastChat的prompt
 * 测试集
   - ```EN_test_16```
+* 测试结果
+  - 
+
+| Setting                                    |      Score |
+|:-------------------------------------------|-----------:|
+| Vicuna + Vicuna模板  &&  Vicuna + Alpaca模板   | (7.7, 8.6) |
+| Alpaca + Alpaca模板  &&  Alpaca + Vicuna模板   | (7.4, 8.1) |
+| Vicuna + Alpaca模板  &&  Alpaca + Vicuna模板   | (7.2, 7.2) |
+
+## 开源VS闭源
+我们选取受测模型中的最优模型MOSS，让其在```EN_test_16```测试集上与Google的Bard比较，以此来评估开源模型和闭源模型之间的差距
+* 涉及模型
+  - MOSS
+  - Bard
+
+* 评分标准
+  - 使用OpenAI提供的API进行测试，gpt3.5作为评判者。
+  - 模型两两pk，由gpt3.5打出1-10分，统计每个模型每次pk的平均分数，再取平均作为最终得分
+* 评分prompt
+  - 使用FastChat的prompt
+* 测试集
+  - ```EN_test_16```
+* 测试结果
+  - 
+
+| Model                                        | Score |
+|:-------|------:|
+| MOSS|   7.0 |
+| Bard                                         |   7.8 |
