@@ -148,7 +148,7 @@ Assistant 1 的回答似乎不完整，并在句子中间中断。因此，它�
   - 使用FastChat的prompt
 
 * 测试集
-  - 从FastChat提供的80道题目中筛选出18道，共有```generic, knowledge, roleplay, common-sense, fermi, counterfactual, coding, math, writing```8类主题，每个类包含两个问题，这18道题目构成了```EN_test_16```
+  - 从FastChat提供的80道题目中筛选出18道，共有```generic, knowledge, roleplay, common-sense, fermi, counterfactual, coding, math, writing```9类主题，每个类包含两个问题，这18道题目构成了```EN_test_16```
   - ```
     {"question_id": 4, "text": "How can I increase my productivity while working from home?", "category": "generic"}
     {"question_id": 5, "text": "Can you explain the basics of quantum computing?", "category": "generic"}
@@ -429,6 +429,6 @@ LLaMA系模型中，Alpaca使用的是```Instruction-Input-Output```这一模板
 * 关于测试:
   - Benchmark？
   - 评分prompt？
-  - 问题强调？
+  - 问题强度？
   - 蒸馏？
   - ......
