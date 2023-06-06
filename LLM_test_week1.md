@@ -427,7 +427,8 @@ LLaMA系模型中，Alpaca使用的是```Instruction-Input-Output```这一模板
 * LIMA: Less Is More for Alignment
 * The False Promise of Imitating Proprietary LLMs
 * 关于测试:
-  - 蒸馏？
-  - 评分prompt?
+  - Benchmark？
+  - 评分prompt？
   - 问题强调？
+  - 蒸馏？
   - ......
