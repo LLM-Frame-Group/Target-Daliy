@@ -10,8 +10,6 @@
 
 - Alpaca 
 
-- MPT
-
 - MOSS
 
 - ChatGLM
