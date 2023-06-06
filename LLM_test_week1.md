@@ -291,7 +291,7 @@ LLaMA系模型中，Alpaca使用的是```Instruction-Input-Output```这一模板
 | Alpaca + Alpaca模板  &&  Alpaca + Vicuna模板   | (7.4, 8.1) |
 | Vicuna + Alpaca模板  &&  Alpaca + Vicuna模板   | (7.2, 7.2) |
 
-## 开源VS闭源
+## Test7:开源VS闭源
 我们选取受测模型中的最优模型MOSS，让其在```EN_test_16```测试集上与Google的Bard比较，以此来评估开源模型和闭源模型之间的差距
 * 涉及模型
   - MOSS
