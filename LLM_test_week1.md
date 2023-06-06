@@ -81,7 +81,37 @@ MOSS是一个支持中英双语和多种插件的开源对话语言模型，`mos
 
 ChatGLM-6B 是一个开源的、支持中英双语的对话语言模型，基于 [General Language Model (GLM)](https://github.com/THUDM/GLM) 架构，具有 62 亿参数。ChatGLM-6B 使用了和 ChatGPT 相似的技术，针对中文问答和对话进行了优化。经过约 1T 标识符的中英双语训练，辅以监督微调、反馈自助、人类反馈强化学习等技术的加持。
 
+## 样例
+* Question
+```
+在汤姆考试的前一天晚上，隔壁的邻居举行了一次聚会，音乐让他无法入睡，他给邻居打了电话，请她不要吵，邻居却突然挂断了电话。 汤姆并不打算射杀任何人，只是将枪口对准邻居天花板的一个角度，他很想对邻居的房子造成一些破坏，以缓解他的愤怒。 然而，子弹从天花板上弹出，击中了一个人的背部，导致他死亡。请问汤姆是否犯了罪，是什么罪？
+```
+* Assistant 1: MOSS
+```
+这个案例涉及到谋杀罪和过失杀人罪。如果汤姆没有杀人的故意，只是过失杀死了邻居，那么他可能会被判定为过失杀人罪。
+但是，如果汤姆有杀人的故意，那么他将面临谋杀罪的指控。
+无论哪种情况，汤姆都应该被起诉并受到法律制裁。
+```
+* Assistant 2: CharGLM
+ ```
+ 汤姆的行为是犯罪，他射杀的人是在聚会中死亡的，汤姆的行为符合杀手罪的定义。
+ 杀手罪是指故意杀人罪，是指故意非法
+ ```
+* Review
+```
+8 6
 
+Assistant 1 provides a very clear and accurate explanation of the legal consequences that Tom could face for his actions and is helpful in distinguishing between different types of homicide, which would be useful for someone who may not be familiar with legal terminology. However, the response could benefit from more detail and nuances regarding the specific circumstances of the case.
+Assistant 2's response appears to be incomplete and cuts off in the middle of a sentence. Therefore, it is not very helpful, and it also includes legal terminology without sufficient explanations of what that terminology actually means.
+```
+
+```
+8 6
+
+Assistant 1 对汤姆的行为可能面临的法律后果做出了非常清晰准确的解释，有助于区分不同类型的凶杀案，这对可能不熟悉法律术语的人来说很有用。然而，有关案件具体情况的更多细节和细微差别可能会使答复受益。
+
+Assistant 1 的回答似乎不完整，并在句子中间中断。因此，它没有太大帮助，它还包括法律术语，但没有充分解释该术语的实际含义。
+```
 
 ## Test1:基础能力测试
 
