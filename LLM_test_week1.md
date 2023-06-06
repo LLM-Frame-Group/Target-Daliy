@@ -58,11 +58,11 @@ Vicuna是一个开源的大语言模型，通过微调LLaMA并从ShareGPT收集�
 
 模型简介：
 
-模型名 ｜	LLaMA	｜Alpaca ｜	Vicuna ｜	Bard/ChatGPT
-数据集	｜公开可用的数据集 (1T token)	｜Self-instruct from davinci-003 API (52K samples)	｜用户共享对话 (70K samples)	｜N/A
-训练代码 ｜	N/A	｜ Available｜	Available｜	N/A
-训练费用(7B)	｜82K GPU-hours｜	$500 (data) + $100 (training)｜	$140 (training)｜	N/A
-训练费用 (13B)｜	135K GPU-hours	｜N/A	｜$300 (training)	｜
+｜模型名 ｜	LLaMA	｜Alpaca ｜	Vicuna ｜	Bard/ChatGPT|
+｜数据集	｜公开可用的数据集 (1T token)	｜Self-instruct from davinci-003 API (52K samples)	｜用户共享对话 (70K samples)	｜N/A|
+｜训练代码 ｜	N/A	｜ Available｜	Available｜	N/A|
+|训练费用(7B)	｜82K GPU-hours｜	$500 (data) + $100 (training)｜	$140 (training)｜	N/A|
+|训练费用 (13B)｜	135K GPU-hours	｜N/A	｜$300 (training)	｜ |
 
 
 ## MOSS
