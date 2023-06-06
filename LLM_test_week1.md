@@ -319,7 +319,7 @@ Test3是针对LLaMA 7B不同量化模型的同一批英文文本输出的结果�
 * 测试集
   - ```EN_test_16```
 
-| 评测对象               | 评测对象 |
+| 评测对象               | 得分 |
 | ---------------------- | -------: |
 | Vicuna-7b-16bit-paramA |      7.6 |
 | Vicuna-7b-16bit-paramB |      8.3 |
@@ -343,6 +343,10 @@ LLaMA系模型中，Alpaca使用的是```Instruction-Input-Output```这一模板
   - Alpaca 7B + Vicuna模板
   - Vicuna 7B + Alpaca模板
   - Alpaca 7B + Alpaca模板
+* Alpaca模板
+  - 一段描述 + Instruction(Question) + Input + \n###Response: 
+* Vicuna模板
+  - 一段描述 + USER(Question) + ASSISTANT: 
 * 评分标准
   - 使用OpenAI提供的API进行测试，gpt3.5作为评判者。
   - 为控制单一变量，不再两两测试
@@ -382,3 +386,12 @@ LLaMA系模型中，Alpaca使用的是```Instruction-Input-Output```这一模板
 |:-------|------:|
 | MOSS|   7.0 |
 | Bard                                         |   7.8 |
+
+## 一些思考：形似 or 神似
+* LIMA: Less Is More for Alignment
+* The False Promise of Imitating Proprietary LLMs
+* 关于测试:
+  - 蒸馏？
+  - 评分prompt?
+  - 问题强调？
+  - ......
