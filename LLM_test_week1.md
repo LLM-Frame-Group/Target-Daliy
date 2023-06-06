@@ -62,15 +62,6 @@ Vicuna是一个开源的大语言模型，通过微调LLaMA并从ShareGPT收集�
 
 Alpaca是斯坦福开发的根据对LLaMA模型微调产生的的大语言模型。对LLaMA模型的改进包括，提供新的prompt，使用更激进的batch解码，通过放弃分类和非分类指令之间的差异来简化数据生成管道等。
 
-## MPT
-
-项目来源：
-
-- https://huggingface.co/mosaicml/mpt-7b-instruct
-
-模型简介：
-
- [MPT (MosaicML Pretrained Transformer)](https://github.com/mosaicml/llm-foundry)是在MosaicML上发布的开源模型，该模型与LLaMA相近，但存在许多方面超过后者，此外，基于基本MPT-7B，还发布了MPT-7B- instruct, MPT-7B- chat和MPT-7B- storywrity65k +几个微调模型。训练数据集tokens种1T来自LLaMA，300B来自Pythia，300B来自OpenLLaMA和800B来自StableLM。MPT的改进包括性能优化，提供更大的训练稳定性架构，通过使用ALiBi替换位置嵌入来消除上下文长度限制。
 
 ## MOSS
 
@@ -100,7 +91,6 @@ ChatGLM-6B 是一个开源的、支持中英双语的对话语言模型，基于
   - LLaMA 7B
   - Vicuna 7B
   - Alpaca 7B
-  - MPT 7B
   - MOSS 7B
   - ChatGLM 7B
 
@@ -123,7 +113,30 @@ ChatGLM-6B 是一个开源的、支持中英双语的对话语言模型，基于
   - 使用FastChat的prompt
 
 * 测试集
-  - 从FastChat提供的80道题目中筛选出16道，共有```generic, knowledge, roleplay, common-sense, fermi, counterfactual, coding, math, writing```8类主题，每个类包含两个问题，这16道题目构成了```EN_test_16```
+  - 从FastChat提供的80道题目中筛选出18道，共有```generic, knowledge, roleplay, common-sense, fermi, counterfactual, coding, math, writing```8类主题，每个类包含两个问题，这18道题目构成了```EN_test_16```
+  - ```
+    {"question_id": 4, "text": "How can I increase my productivity while working from home?", "category": "generic"}
+    {"question_id": 5, "text": "Can you explain the basics of quantum computing?", "category": "generic"}
+    {"question_id": 15, "text": "Describe a scenario where artificial intelligence could be used to improve the quality and efficiency of healthcare delivery.", "category": "knowledge"}
+    {"question_id": 16, "text": "Explain the process of gene editing using CRISPR-Cas9 technology, and discuss its potential applications and ethical implications.", "category": "knowledge"}
+    {"question_id": 22, "text": "As a pirate captain, what would you say to your crew to motivate them to search for hidden treasure?", "category": "roleplay"}
+    {"question_id": 23, "text": "If you were a Shakespearean character, how would you declare your love for someone in a soliloquy?", "category": "roleplay"}
+    {"question_id": 32, "text": "What are some subtle clues that suggest someone is pretending to understand a topic or conversation when they are actually confused or uninformed?", "category": "common-sense"}
+    {"question_id": 33, "text": "Why might someone choose to use a paper map or ask for directions instead of relying on a GPS device or smartphone app?", "category": "common-sense"}
+    {"question_id": 42, "text": "How many atoms are in a grain of salt? Try to explain your answer. Your explanation should take the reader through your reasoning step-by-step.", "category": "fermi"}
+    {"question_id": 43, "text": "How many lightning strikes occur on Earth each day? Try to explain your answer. Your explanation should take the reader through your reasoning step-by-step.", "category": "fermi"}
+    {"question_id": 53, "text": "What if the Black Death had not occurred in the 14th century?", "category": "counterfactual"}
+    {"question_id": 54, "text": "What if Isaac Newton had focused on biology instead of physics?", "category": "counterfactual"}
+    {"question_id": 62, "text": "Implement a Python function to find the longest common subsequence of two input strings using dynamic programming.", "category": "coding"}
+    {"question_id": 63, "text": "Implement a regular expression in Python to validate an email address.", "category": "coding"}
+    {"question_id": 68, "text": "Given that f(x) = 5x^3 - 2x + 3, find the value of f(2).", "category": "math"}
+    {"question_id": 69, "text": "Solve for x in the equation 3x + 10 = 5(x - 2).", "category": "math"}
+    {"question_id": 75, "text": "Draft an apology email to a customer who experienced a delay in their order, and provide reassurance that the issue has been resolved.", "category": "writing"}
+    {"question_id": 76, "text": "Write a script for a YouTube video exploring the history and cultural significance of jazz.", "category": "writing"}
+
+    
+    ```
+
 
 ## 中文能力测试
 
