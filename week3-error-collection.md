@@ -1,13 +1,4 @@
 ## 训练环境搭建——问题汇总
-
-1. **Exec docker**
-
-   Within the Docker container, we can only perform the following steps.
-
-   ```shell
-   sudo docker exec -it <Your Docker> bash
-   
-   ```
    
 # Deepspeed
 
