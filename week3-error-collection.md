@@ -194,3 +194,47 @@ https://github.com/tloen/alpaca-lora
       2. 把flash-attn编译到kernel
    2. https://github.com/princeton-nlp/MeZO
    3. https://github.com/OpenLMLab/LOMO
+
+
+## API并发简单测试
+
+#### FastChat API 容器错误
+
+ConnectionError: HTTPConnectionPool(host='localhost', port=21001): Max retries exceeded with url: /register_worker (Caused by...
+
+model workers 与 serve无法通讯，Issues已有相同问题但尚未解决
+
+尝试解决：
+
+1. 换用端口
+
+2. localhost->0.0.0.0
+3. 减小limit-model-concurrency(默认5)
+
+
+
+#### chatGLM API
+
+参数信息：
+
+- max_length=2048
+- top_p=0.7
+- temperature=0.95
+
+
+
+| 单任务无并发平均时间 | 双任务并发平均时间 |
+| :------------------: | ------------------ |
+|          7s          | 12s                |
+
+测试样例：
+
+1. 如何与新同学相处？
+2. 如何做一道宫保鸡丁？
+
+
+
+
+
+
+
