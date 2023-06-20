@@ -207,7 +207,6 @@ model workers 与 serve无法通讯，Issues已有相同问题但尚未解决
 尝试解决：
 
 1. 换用端口
-
 2. localhost->0.0.0.0
 3. 减小limit-model-concurrency(默认5)
 
@@ -223,6 +222,7 @@ model workers 与 serve无法通讯，Issues已有相同问题但尚未解决
 
 方法：
 测试1：进行限时异步请求相应，加入任务分割并合并为一个prompt推理，与分词处理比对
+
 测试2：限时请求最大处理能力--待完成
 
 | 单任务无并发平均时间 | 双任务并发平均时间 |
