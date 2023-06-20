@@ -1,4 +1,4 @@
-## LLM+langchain
+<img width="666" alt="image" src="https://github.com/LLM-Frame-Group/Target-Daliy/assets/87760538/3cc6e6fe-2f88-499c-a9aa-86289e6e30b7">## LLM+langchain
 
 LangChain是一个强大的框架，旨在帮助开发人员使用语言模型构建端到端的应用程序。它提供了一套工具、组件和接口，可简化创建由大型语言模型 (LLM) 和聊天模型提供支持的应用程序的过程。LangChain 可以轻松管理与语言模型的交互，将多个组件链接在一起，并集成额外的资源，例如 API 和数据库。
 
@@ -103,6 +103,8 @@ Answer:
 <img src="week3-LLM+langchain.assets/image-20230620095107230.png" alt="image-20230620095107230" style="zoom: 55%;" />
 
 langchain首先将知识库读取成文本，拆分成一个个段落（到步骤4）。每个段落做Embedding（步骤5、6），可以用OpenAI接口做或者用其他语言模型。Embedding就是生成能够表达该文本含义的一个向量。接着把每个段落产生的向量都存进VectorStore里。后续用户输入query时，也生成query的embedding，和VectorStore里面的向量做相似度匹配，相似度较高的文本可以认为是回答query最有用的“知识”。然后将“知识”文本，通过prompt的方法嵌入上下文，放在一起问模型，就能得到合理的回答啦。
+
+<img src="week3-LLM+langchain.assets/iShot_2023-06-20_10.21.55.png" alt="iShot_2023-06-20_10" style="zoom: 55%;" />
 
 > **Loader 加载器**
 >
