@@ -96,7 +96,7 @@ Answer:
 
 - 基于私有数据的问答
 
-<img src="week3-LLM+langchain.assets/image-20230620095710733.png" alt="image-20230620095710733" style="zoom:50%;" />
+<img src="week3-LLM+langchain.assets/image-20230620095710733.png" alt="image-20230620095710733" style="zoom:30%;" />
 
 原理：
 
