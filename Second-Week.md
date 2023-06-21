@@ -3,10 +3,10 @@
 - 任务主题：尝试开源模型的完全微调和参数高效微调
   - 模型：LLaMA，Chinese-LLaMA, ChatGLM
   - 涉及训练方法： finetune, LoRA finetune, QLoRA finetune
-  - 涉及数据集：lawgpt的 [法律数据集](http://github.com/pengxiao-song/LaWGPT )，medicalgpt的[医疗数据集](https://github.com/shibing624/MedicalGPT )
+  - 涉及数据集：lawgpt的 [法律数据集](http://github.com/pengxiao-song/LaWGPT )
 
 
-- #### 阶段一：跑通代码
+- #### 阶段一：搭建模型
 
 - 任务目标：完成开源LLM模型的训练
 
