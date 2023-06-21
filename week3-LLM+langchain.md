@@ -28,7 +28,21 @@ Chain是结构化的调⽤序列（对LLM或其他实⽤程序）。我们可以
 执行过程可以参考下面这张图:
 
 ![image-20230620095036405](week3-LLM+langchain.assets/image-20230620095036405.png)
+#### Loader 加载器
 
+从指定源进行加载数据。比如：文件夹 `DirectoryLoader`、Azure 存储 `AzureBlobStorageContainerLoader`、CSV文件 `CSVLoader`、印象笔记 `EverNoteLoader`、Google网盘 `GoogleDriveLoader`、任意的网页 `UnstructuredHTMLLoader`、PDF `PyPDFLoader`、S3 `S3DirectoryLoader`/`S3FileLoader`、Youtube `YoutubeLoader` 等等，上面只是简单的进行列举了几个，官方提供了超级多的加载器供使用。
+
+#### Text Spltters 文本分割
+
+把文本当作 prompt 发给 openai api ，或使用 openai api embedding 功能都是有字符限制的。比如我们将一份300页的 pdf 发给 openai api，让他进行总结，他肯定会报超过最大 Token 错。所以这里就需要使用文本分割器去分割我们 loader 进来的 Document。
+
+#### Vectorstores 向量数据库
+
+因为数据相关性搜索其实是向量运算。所以，不管我们是使用 openai api embedding 功能还是直接通过向量数据库直接查询，都需要将我们的加载进来的数据 `Document` 进行向量化，才能进行向量运算搜索。转换成向量也很简单，只需要我们把数据存储到对应的向量数据库中即可完成向量的转换。官方也提供了很多的向量数据库供我们使用。
+
+#### Embedding
+
+用于衡量文本的相关性。这个也是 OpenAI API 能实现构建自己知识库的关键所在。他相比 fine-tuning 最大的优势就是，不用进行训练，并且可以实时添加新的内容，而不用加一次新的内容就训练一次，并且各方面成本要比 fine-tuning 低很多。
 
 ## 2.LangChain复现例子
 
@@ -111,21 +125,6 @@ langchain首先将知识库读取成文本，拆分成一个个段落（到步�
 
 <img src="week3-LLM+langchain.assets/iShot_2023-06-20_10.21.55.png" alt="iShot_2023-06-20_10" style="zoom: 55%;" />
 
-> **Loader 加载器**
->
-> 从指定源进行加载数据。比如：文件夹 `DirectoryLoader`、Azure 存储 `AzureBlobStorageContainerLoader`、CSV文件 `CSVLoader`、印象笔记 `EverNoteLoader`、Google网盘 `GoogleDriveLoader`、任意的网页 `UnstructuredHTMLLoader`、PDF `PyPDFLoader`、S3 `S3DirectoryLoader`/`S3FileLoader`、Youtube `YoutubeLoader` 等等，上面只是简单的进行列举了几个，官方提供了超级多的加载器供使用。
->
-> **Text Spltters 文本分割**
->
-> 把文本当作 prompt 发给 openai api ，或使用 openai api embedding 功能都是有字符限制的。比如我们将一份300页的 pdf 发给 openai api，让他进行总结，他肯定会报超过最大 Token 错。所以这里就需要使用文本分割器去分割我们 loader 进来的 Document。
->
-> **Vectorstores 向量数据库**
->
-> 因为数据相关性搜索其实是向量运算。所以，不管我们是使用 openai api embedding 功能还是直接通过向量数据库直接查询，都需要将我们的加载进来的数据 `Document` 进行向量化，才能进行向量运算搜索。转换成向量也很简单，只需要我们把数据存储到对应的向量数据库中即可完成向量的转换。官方也提供了很多的向量数据库供我们使用。
-> 
-> **Embedding**
-> 
->用于衡量文本的相关性。这个也是 OpenAI API 能实现构建自己知识库的关键所在。他相比 fine-tuning 最大的优势就是，不用进行训练，并且可以实时添加新的内容，而不用加一次新的内容就训练一次，并且各方面成本要比 fine-tuning 低很多。
 
 **输入一篇论文，关于以太坊钓鱼诈骗检测**
 
