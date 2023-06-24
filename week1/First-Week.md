@@ -17,7 +17,7 @@
       - Vicuna-7B:https://huggingface.co/lmsys/vicuna-7b-delta-v1.1
       - Vicuna-13B:https://huggingface.co/lmsys/vicuna-13b-delta-v1.1 
 
-  - 余杰：，LLaMA(7B, 13B)
+  - 余杰：MOSS，LLaMA(7B, 13B)
     - 项目来源参考：
       - LLaMA-7B:https://huggingface.co/yahma/llama-7b-hf
       - LLaMA-13B:https://huggingface.co/yahma/llama-13b-hf
